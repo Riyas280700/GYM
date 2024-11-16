@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+            background-image: url(IMG/background.jpg) ;
+            background-repeat: no-repeat;
+            background-size: 1550px 800px;
+        }
+        #pre1{
+            border: 5px solid orangered;
+            
+            color: orangered;
+            background-color: 200px;
+        }
+        #b1{
+            border: 4px solid orangered;
+    border-radius: 7px;
+    text-align: center;
+    background-color: orangered;
+    position: absolute;
+    top: 71%;
+    right: 49%;
+        }
+        #b1:hover{
+            background-color: black;
+    color: orangered;
+        }
+        #pre1{
+            background-color: black;
+            color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <br><br><br><br><br>
+            <h1 style="color: orangered;text-align: center;">FILL YOUR DETIALS</h1>
+            <br>
+            <pre id="pre1"><h4> 
+                
+         Name    :<input type="text" id="name"><br>
+         Number  :<input type="text" id="num"><br>
+         Email   :<input type="text" id="mail"><br>
+         Password:<input type="password" id="pw"><br>  
+            </h4> </pre>
+        <b id="b1" onclick="data()">submit</b>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+ 
+</body>
+<script>
+   
+    function data(){
+        var n1=document.getElementById("name").value;
+        var n2=document.getElementById("num").value;
+        var n3=document.getElementById("mail").value;
+        var n4=document.getElementById("pw").value;
+         alp=/^[A-Za-z]+$/
+        numb=/^([0-9]{10})+$/
+        maill=/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/
+        pass= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
+
+
+        if(n1==""){alert("enter the name");}
+ 		else if(!alp.test(n1)){alert("use only alphabets");}
+     
+         if(n2==""){alert("enter the mobile");}
+		else if(!numb.test(n2)){alert("enter 10 digit number");}
+        
+
+        if(n3==""){alert("enter the email");}
+        else if(!maill.test(n3)){alert("use only correct email");}
+		
+        if(n4==""){alert("enter the password");}
+		if(!pass.test(n4)){alert("create strong password");}
+        
+
+        else{
+            window.location="ending.html"
+           }
+
+           const name = document.getElementById("name").value;
+           const num = document.getElementById("num").value;
+           const mail = document.getElementById("mail").value;
+           const pw = document.getElementById("pw").value;
+
+           const userInput = {
+        name: name,
+        num:num,
+     mail:  mail,
+        pw : pw
+      };
+      let existingData = JSON.parse(localStorage.getItem("userInputs")) || [];
+      
+      existingData.push(userInput);
+
+      localStorage.setItem("userInputs", JSON.stringify(existingData));
+
+      let existingData1 = JSON.parse(localStorage.getItem("userInputs")) || [];
+      
+      document.write(particularElement.name);
+      document.write(particularElement.num);
+      document.write(particularElement.mail);
+      document.write(particularElement.pw);
+    }
+</script>
+</html>
